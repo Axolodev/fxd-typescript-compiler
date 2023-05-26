@@ -1,5 +1,10 @@
 {
-  "dependencies": {
+  "devDependencies": {
+    "jest": "^29.5.0",
     "typescript": "^5.0.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
   }
 }

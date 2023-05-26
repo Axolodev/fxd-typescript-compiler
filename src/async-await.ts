@@ -1,37 +1,4 @@
-const func = () => ":wave:";
-const asyncFunc = async () => ":wave:";
-
-const myString = func();
-const myPromiseString = asyncFunc();
-
-myString.length;
-
-// @ts-expect-error
-myPromiseString.length;
-
-const myWrapperFunction = async () => {
-  const myString = func();
-  const myResolvedPromiseString = await asyncFunc();
-
-  myString.length;
-  myResolvedPromiseString.length;
-};
-
-const myThrowingFunction = async () => {
-  throw new Error("Do not call this");
-};
-
-const asyncFunctionCatching = async () => {
-  const myReturnValue = "Hello world";
-  try {
-    await myThrowingFunction();
-  } catch (error) {
-    console.error("myThrowingFunction failed", error);
-  }
-  return myReturnValue;
-};
-
-const exampleSquareRootFunction = async (input: any) => {
+export const exampleSquareRootFunction = async (input: any) => {
   if (isNaN(input)) {
     throw new Error("Only numbers are accepted");
   }
@@ -43,9 +10,8 @@ const exampleSquareRootFunction = async (input: any) => {
   }
 };
 
-const checkSquareRoot = async (value: number) => {
+export const checkSquareRoot = async (value: number) => {
   const response = await exampleSquareRootFunction(value);
-  if (response.success) {
-    response.value;
-  }
+
+  console.log(response.value.toString());
 };
